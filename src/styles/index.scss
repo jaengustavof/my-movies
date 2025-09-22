@@ -1,0 +1,12 @@
+@import "_global";
+
+// Components
+@import "./components/_header.scss";
+@import "./components/_movie-card.scss";
+@import "./components/_carousel.scss";
+@import "./components/_favourite-movie-card.scss";
+
+// Pages
+@import "./pages/_home-page.scss";
+@import "./pages/movie-detail.scss";
+@import "./pages/favourites.scss";

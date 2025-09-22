@@ -1,0 +1,233 @@
+@import "../_global";
+.movie-detail {
+  min-height: 100vh;
+  background: $dark;
+  padding: 2rem 0;
+
+  @include mf-tablet {
+    padding: 4rem 0;
+  }
+
+  &__back-button {
+    display: inline-block;
+    color: $white;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+
+    @include mf-tablet {
+      padding-left: 2rem;
+    }
+
+    @include mf-laptop {
+      padding-left: 0;
+    }
+
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  &__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    @include mf-tablet {
+      padding: 0 2rem;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 3rem;
+    }
+
+    @include mf-laptop {
+      padding: 0;
+    }
+  }
+
+  &__poster {
+    flex-shrink: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+
+    img {
+      width: 300px;
+      height: auto;
+      display: block;
+
+      @include mf-mobile {
+        width: 250px;
+      }
+
+      @include mf-tablet {
+        width: 350px;
+      }
+    }
+  }
+
+  &__info {
+    flex: 1;
+    text-align: center;
+
+    @include mf-tablet {
+      text-align: left;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $white;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.2;
+
+    @include mf-mobile {
+      font-size: 1.75rem;
+    }
+
+    @include mf-tablet {
+      font-size: 2.5rem;
+    }
+
+    @include mf-laptop {
+      font-size: 3rem;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+
+    @include mf-tablet {
+      justify-content: flex-start;
+    }
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ffd700;
+    font-weight: 600;
+
+    svg {
+      fill: currentColor;
+    }
+  }
+
+  &__release {
+    color: $gray;
+    font-weight: 500;
+  }
+
+  &__overview {
+    margin-bottom: 2rem;
+
+    h3 {
+      font-size: 1.25rem;
+      color: $white;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: rgba($white, 0.9);
+
+      @include mf-mobile {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &__wishlist-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: rgba($white, 0.1);
+    color: $white;
+    border: 2px solid rgba($white, 0.3);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+
+    @include mf-tablet {
+      margin: 0;
+    }
+
+    @include mf-mobile {
+      padding: 0.875rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    &:hover {
+      background: rgba($white, 0.2);
+      border-color: rgba($white, 0.5);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &.active {
+      background: $wishlist-color;
+      border-color: $wishlist-color;
+      color: $white;
+
+      &:hover {
+        background: #e55555; /* Darker shade of $wishlist-color (#ff6b6b) */
+        border-color: #e55555; /* Darker shade of $wishlist-color (#ff6b6b) */
+      }
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      transition: all 0.3s ease;
+
+      @include mf-mobile {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+  // Loading, Error States
+  &__loading,
+  &__error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    color: $white;
+    padding: 2rem;
+    font-size: 1.2rem;
+  }
+
+  &__error {
+    gap: 2rem;
+  }
+}

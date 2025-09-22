@@ -1,0 +1,70 @@
+// Base colors
+$dark: #141414;
+$dark-card: #1a1a1a;
+$white: #ffffff;
+$gray: #888;
+
+// Genres colors
+$horror-color: #8b0000;
+$action-color: #ff6b35;
+$sci-fi-color: #00d4ff;
+
+// Other colors
+$wishlist-color: #ff6b6b;
+$accent: #4ecdc4;
+
+// Mobile First Media Queries
+@mixin mf-mobile-sm {
+  @media only screen and (min-width: 360px) {
+    @content;
+  }
+}
+
+@mixin mf-mobile {
+  @media only screen and (min-width: 482px) {
+    @content;
+  }
+}
+
+@mixin mf-tablet {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mf-tablet-medium {
+  @media only screen and (min-width: 868px) {
+    @content;
+  }
+}
+
+@mixin mf-tablet-big {
+  @media only screen and (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin mf-laptop {
+  @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+// Fonts
+$font-default: "Roboto", sans-serif;
+$font-horror: "Creepster", cursive;
+$font-action: "Bebas Neue", cursive;
+$font-sci-fi: "Orbitron", monospace;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-default;
+  background-color: $dark;
+  color: $white;
+  line-height: 1.6;
+}

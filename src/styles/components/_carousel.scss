@@ -1,0 +1,282 @@
+@import "../_global";
+
+.carousel {
+  margin-bottom: 2rem;
+
+  &__wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @include mf-tablet {
+      padding: 0 2rem;
+    }
+
+    @include mf-laptop {
+      padding: 0;
+    }
+  }
+
+  &__header {
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $white;
+    margin: 0;
+
+    @include mf-mobile {
+      font-size: 1.5rem;
+    }
+
+    @include mf-tablet {
+      font-size: 1.75rem;
+    }
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__scroll-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 0;
+
+    @include mf-tablet {
+      gap: 1.5rem;
+    }
+  }
+
+  &__item {
+    flex: 0 0 auto;
+    width: 160px;
+
+    @include mf-mobile-sm {
+      width: 180px;
+    }
+
+    @include mf-mobile {
+      width: 200px;
+    }
+
+    @include mf-tablet {
+      width: 240px;
+    }
+
+    @include mf-tablet-big {
+      width: 275px;
+    }
+  }
+
+  &__scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    cursor: pointer;
+    z-index: 3;
+    opacity: 0;
+    transition: all 0.3s ease;
+
+    @include mf-tablet {
+      display: flex;
+      width: 48px;
+      height: 48px;
+    }
+
+    .carousel__container:hover & {
+      @include mf-tablet {
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.9);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    &--left {
+      left: 1rem;
+    }
+
+    &--right {
+      right: 1rem;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+
+      @include mf-tablet {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  // Variantes por género
+  &--horror {
+    .carousel__title {
+      color: #ff6b6b;
+      font-family: $font-horror;
+    }
+
+    .carousel__scroll-btn {
+      background: rgba($horror-color, 0.8);
+
+      &:hover {
+        background: rgba($horror-color, 0.9);
+      }
+    }
+  }
+
+  &--action {
+    .carousel__title {
+      color: #ffb347;
+      font-family: $font-action;
+    }
+
+    .carousel__scroll-btn {
+      background: rgba($action-color, 0.8);
+
+      &:hover {
+        background: rgba($action-color, 0.9);
+      }
+    }
+  }
+
+  &--sci-fi {
+    .carousel__title {
+      color: #66d9ff;
+      font-family: $font-sci-fi;
+    }
+
+    .carousel__scroll-btn {
+      background: rgba($sci-fi-color, 0.8);
+
+      &:hover {
+        background: rgba($sci-fi-color, 0.9);
+      }
+    }
+  }
+
+  // Estados especiales
+  &--loading {
+    .carousel__loading {
+      padding: 0;
+    }
+
+    .carousel__loading-items {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+
+      @include mf-tablet {
+        gap: 1.5rem;
+      }
+    }
+
+    .carousel__loading-item {
+      flex: 0 0 auto;
+      width: 160px;
+      background: #2a2a2a;
+      border-radius: 12px;
+      overflow: hidden;
+
+      @include mf-mobile-sm {
+        width: 180px;
+      }
+
+      @include mf-mobile {
+        width: 200px;
+      }
+
+      @include mf-tablet {
+        width: 240px;
+      }
+
+      @include mf-tablet-big {
+        width: 275px;
+      }
+    }
+
+    .carousel__loading-poster {
+      aspect-ratio: 2/3;
+      background: #333333;
+    }
+
+    .carousel__loading-info {
+      padding: 1rem;
+    }
+
+    .carousel__loading-title {
+      height: 1.1rem;
+      background: #333333;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    .carousel__loading-details {
+      height: 0.875rem;
+      background: #333333;
+      border-radius: 4px;
+      width: 60%;
+    }
+  }
+
+  &--error,
+  &--empty {
+    .carousel__error,
+    .carousel__empty {
+      padding: 2rem 0;
+      text-align: center;
+      color: $gray;
+
+      p {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+      }
+    }
+
+    .carousel__retry-btn {
+      background: $accent;
+      color: $white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #3fb8b1; /* Darker shade of $accent (#4ecdc4) */
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
