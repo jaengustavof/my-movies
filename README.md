@@ -2,7 +2,7 @@
 
 Una aplicación web moderna para explorar y gestionar películas favoritas, construida con React, TypeScript, Vite y Server-Side Rendering (SSR).
 
-## 🎬 Características
+## Características
 
 - **Exploración de películas** por géneros (Terror, Acción, Ciencia Ficción)
 - **Lista de deseos** para guardar películas favoritas
@@ -11,7 +11,7 @@ Una aplicación web moderna para explorar y gestionar películas favoritas, cons
 - **Server-Side Rendering (SSR)** para mejor SEO y rendimiento
 - **Tests unitarios** completos con Vitest
 
-## 🏗️ Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 src/
@@ -44,7 +44,7 @@ src/
 └── main.tsx              # Entry point del cliente
 ```
 
-## 🔧 Funcionalidades del Store (Zustand)
+## Funcionalidades del Store (Zustand)
 
 El store de `wishlist.ts` maneja el estado global de las películas favoritas:
 
@@ -66,7 +66,7 @@ interface WishlistState {
 - **Persistencia**: Mantiene el estado durante la sesión
 - **TypeScript**: Completamente tipado
 
-## 🌐 Servicios TMDB
+## Servicios TMDB
 
 El archivo `services/tmdb.ts` maneja toda la comunicación con The Movie Database API:
 
@@ -96,7 +96,7 @@ getMovieDetails(id: number): Promise<MovieDetails>
 VITE_TMDB_BEARER=tu_token_aqui
 ```
 
-## 🏃‍♂️ Instalación y Desarrollo
+## Instalación y Desarrollo
 
 ### Prerrequisitos
 
@@ -134,17 +134,16 @@ npm run test:ui         # Interfaz gráfica de tests
 npm run lint            # Verificar código con ESLint
 
 # Construcción
-npm run build           # Build estándar
+npm run build           # Build completo (cliente + servidor)
 npm run build:client    # Build del cliente para SSR
-npm run build:server    # Build del servidor para SSR
-npm run build:ssr       # Build completo para SSR
+npm run build:ssr       # Build del servidor para SSR
 
 # Producción
-npm run start           # Servidor SSR (después del build)
+npm run serve:ssr       # Servidor SSR (después del build)
 npm run preview         # Preview del build estándar
 ```
 
-## 🖥️ Renderizado del Cliente (CSR)
+## Renderizado del Cliente (CSR)
 
 ### Modo Desarrollo
 
@@ -167,7 +166,7 @@ npm run preview
 - Optimización de assets y code splitting
 - Minificación de CSS y JavaScript
 
-## 🚀 Renderizado del Servidor (SSR)
+## Renderizado del Servidor (SSR)
 
 ### Configuración SSR
 
@@ -183,10 +182,10 @@ La aplicación incluye configuración completa para Server-Side Rendering:
 
 ```bash
 # 1. Build completo para SSR
-npm run build:ssr
+npm run build
 
 # 2. Iniciar servidor SSR
-npm run start
+npm run serve:ssr
 ```
 
 El servidor estará disponible en http://localhost:3000
@@ -228,7 +227,7 @@ if (container.innerHTML) {
 }
 ```
 
-## 🧪 Testing
+## Testing
 
 ### Cobertura de Tests
 
@@ -252,7 +251,7 @@ npm run test:coverage
 npm run test:ui
 ```
 
-## 🔧 Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 - **Frontend**: React 19, TypeScript, React Router
 - **Build Tool**: Vite 7
@@ -263,13 +262,13 @@ npm run test:ui
 - **Linting**: ESLint + Prettier
 - **SSR**: Express.js + React Server Components
 
-## 📱 Responsive Design
+## Responsive Design
 
 - **Mobile First**: Diseño optimizado para móviles
 - **Breakpoints**: Adaptación fluida a diferentes pantallas
 - **Touch Friendly**: Interacciones táctiles optimizadas
 
-## 🌟 Próximas Características
+## Próximas Características
 
 - [ ] Persistencia de favoritos en localStorage
 - [ ] Búsqueda de películas
